@@ -1,0 +1,3 @@
+[submodule "mp1"]
+	path = mp1
+	url = git@gitlab.engr.illinois.edu:siyuan-ruiqi/mp1.git

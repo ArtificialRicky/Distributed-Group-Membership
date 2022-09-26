@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+option go_package = "proto_out/introducer";
+
+package introducer;
+
+// The introducer service definition.
+service Introducer {
+  // Handle a join request
+  rpc Join (NodeID) returns (JoinReply) {}
+
+  // Introducer sends request to existed members
+  rpc AcceptJoin (NodeID) returns (MemberChangeReply) {}
+
+  // Return all members in the ring
+  rpc ListMember (google.protobuf.Empty) returns (JoinReply) {}
+
+  // Return self ID of the node
+  rpc ListSelfID (google.protobuf.Empty) returns (NodeID) {}
+  
+  rpc LeaveLocal (google.protobuf.Empty) returns (google.protobuf.Empty) {}
+
+  // submit Leave Request to all members 
+  rpc LeaveRequest (NodeID) returns (MemberChangeReply) {}
+}
+
+// The request message containing the initiator's IP and timestamp.
+message NodeID {
+  string IP = 1;
+  string TimeStamp = 2;
+}
+
+// The response message containing the initiator
+message JoinReply {
+  repeated NodeID InRingServers = 1;
+}
+
+message MemberChangeReply {
+  string ReplyMessage = 1;
+}
