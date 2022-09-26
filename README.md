@@ -2,14 +2,6 @@
 
 ## Clone Repo and Start Servers
 
-SSH onto a VM and clone code repo. For example,
-```
-ssh siyuanc3@fa22-cs425-8001.cs.illinois.edu
-
-# In VM 8001
-git clone git@gitlab.engr.illinois.edu:siyuan-ruiqi/mp2.git
-cd mp2
-```
 Setup repos in all VM,  start servers with our python scripts. 
 We have added public keys of vm 8001 to all the other VMs and public keys of all VMs to the github repo, 
 so this process won't require any manual password input.
